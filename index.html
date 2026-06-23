@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DABBLE STUDIOS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<audio id="audio-drake" src="drake.mp3" loop></audio>
+<audio id="audio-jb" src="jb.mp3" loop></audio>
+
+<div id="day-overlay"></div>
+<div id="scanlines"></div>
+
+<div id="topbar">
+  <div class="logo-player-group">
+    <div id="logo">DABBLE<span> STUDIOS</span></div>
+
+    <div id="player">
+      <div id="player-art"><i class="fa-solid fa-music"></i></div>
+      <div id="player-info">
+        <div id="player-title">DRAKE.MP3</div>
+        <div id="player-artist">DABBLE STUDIOS RADIO</div>
+      </div>
+      <div id="player-controls">
+        <button class="ctrl-btn" id="prev-btn" title="Previous">⏮</button>
+        <button id="play-btn" title="Play/Pause">▶</button>
+        <button class="ctrl-btn" id="next-btn" title="Next">⏭</button>
+      </div>
+      <div id="player-progress"><div id="player-progress-fill"></div></div>
+    </div>
+  </div>
+
+  <div id="moon-toggle" title="Toggle Day/Night">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </div>
+</div>
+
+<div class="section-label" id="label-intro">
+  <h1>Welcome to <span><br><b>MY PORTFOLIO</b></span></h1>
+  <p>My name is Albert Abdon.</p>
+</div>
+<div class="section-label" id="label-rooftop">
+  <h1>I am a <span>Computer Science</span> graduate</h1>
+  <p>In my free time, I like listening to lots of music.</p>
+</div>
+<div class="section-label" id="label-midcity">
+  <h1>I took my college BS CS degree in<span><br></br:>Ateneo de Manila University</span></h1>
+  <p>With a specialization in Data Science and Analytics</p>
+</div>
+<div class="section-label" id="label-street">
+  <h1>I've been having a lot of<span> random hobbies</span> lately.</h1>
+  <p>Try tapping some buildings to get to know me</p>
+</div>
+<div class="section-label" id="label-ground">
+  <h1>Want to get <br>to <span>know me?</span></h1>
+  <p>Scroll down to check me out.</p>
+</div>
+
+<div id="scroll-progress">
+  <div class="progress-dot active" id="dot-0"></div>
+  <div class="progress-line"></div>
+  <div class="progress-dot" id="dot-1"></div>
+  <div class="progress-line"></div>
+  <div class="progress-dot" id="dot-2"></div>
+  <div class="progress-line"></div>
+  <div class="progress-dot" id="dot-3"></div>
+  <div class="progress-line"></div>
+  <div class="progress-dot" id="dot-4"></div>
+</div>
+
+<div id="altitude">
+  <span id="altitude-value">110m</span>
+  ALTITUDE
+</div>
+
+<div id="custom-cursor-tooltip"></div>
+
+
+<div id="info-panel">
+  <button id="panel-close">✕</button>
+  <div id="info-panel-image-wrap">
+    <img id="info-panel-img" src="" alt="">
+  </div>
+  <div id="info-panel-label"></div>
+</div>
+
+<div id="daynight-label">NIGHT MODE</div>
+<canvas id="city-canvas"></canvas>
+<div class="scroll-space"></div>
+
+<div id="portfolio-section">
+  <div class="portfolio-inner">
+    <div class="portfolio-eyebrow">// albert info loaded</div>
+    <div class="portfolio-headline">
+      Computer<br><span>Science</span>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header">
+        <div class="card-dot"></div>
+        <div class="card-title">// Data found. Last image scan: 8 June 2026 at 9:45 PM</div>
+        <div class="card-tag">HOLOGRAM</div>
+      </div>
+      <div class="donut-container">
+        <div class="donut-img">
+          <div id="donut-wrap">
+            <pre id="donut-output"></pre>
+          </div>
+        </div>
+        <div class="donut-txt">
+          <p>My name is Albert Abdon. I am a recent CS graduate from Ateneo
+            and I like making random things. <br><br>
+            
+           I prefer taking videos over photos.
+           <br><br>
+
+          I am also very into listening music. If you have any cool songs
+          or hidden gem artists, please suggest them to me!
+          </p>
+        </div>
+
+      </div>
+      <div class="donut-caption">
+        <span>albert@MacBook-Air orgs %</span> 
+        brew info --albertabdon
+        ~/Ateneo_BSCS/CompSAt_EB_AC/MISA_Mktg23/RizalLib24
+      </div>
+    </div>
+
+    <h2 class="section-title">Personal<br> & School Projects</h2>
+    <div class="portfolio-grid">
+      
+
+      <div class="project-card">
+        <div class="project-gif-overlay"><img src="images/img-srfr.png" alt="Project Preview"></div>
+        <div class="project-num">PROJECT <span>00</span></div>
+        <div class="project-name">3D Facial Reconstruction using TransGAN SR and EMOCA FR Framework</div>
+        <div class="project-desc">
+          Developed a deep learning-based 3D facial reconstruction 
+          pipeline integrating TransGAN Super-Resolution and EMOCA 
+          Facial Reconstruction frameworks to enhance facial detail 
+          recovery and reconstruction accuracy from low-resolution inputs.
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">pytorch</span>
+          <span class="project-tag">GAN</span>
+          <span class="project-tag">Transformer</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">PROJECT <span>01</span></div>
+        <div class="project-name">NBA Game Simulator with Current Season Player Analytics</div>
+        <div class="project-desc">
+          Developed a data-driven NBA simulation engine using player and 
+          team statistics collected through the NBA API. Built ETL pipelines, 
+          analytical models, and interactive dashboards featuring season-based 
+          box score analytics and configurable game re-simulations to evaluate
+           player performance, team efficiency, and game outcomes
+          </div>
+          <div class="project-tags">
+          <span class="project-tag">NBA API</span>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">PROJECT <span>02</span></div>
+        <div class="project-name">Machine Learning-Based Spotify Hit Prediction with Feature Engineering Analytics  </div>
+        <div class="project-desc">
+          Performed ETL and feature engineering on Spotify metadata and Kaggle's Spotify hit songs dataset, optimizing Random Forest and XGBoost models to improve song popularity prediction via integration of Selenium-scraped related artist data.
+        </div>
+          <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Selenium</span>
+          <span class="project-tag">Jupyter</span>
+          <span class="project-tag">pandas</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-gif-overlay"><img src="images/img-pkmon.gif" alt="Project Preview"></div>
+        <div class="project-num">PROJECT <span>03</span></div>
+        <div class="project-name">Pokémon-Themed Fundraising Online Game for CompSAt COAllective 2026 </div>
+        
+        <div class="project-desc">
+          Developed an interactive Pokémon-themed fundraising web game with full gameplay implementation, and deployment.
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">Piskel</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-gif-overlay"><img src="images/img-coarw.png" alt="Project Preview"></div>
+        <div class="project-num">PROJECT <span>04</span></div>
+        <div class="project-name">Council of Organizations of the Ateneo - Manila RecWeek 2025 Website</div>
+        <div class="project-desc">
+          Co-headed the development and deployment of the official RecWeek 2025 website, 
+          contributing extensively to full-stack development, system architecture, 
+          and user experience optimization for Ateneo’s organization recruitment week. Utilized
+          Google Sheets as backend.
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Google Sheets</span>
+          <span class="project-tag">Webflow</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-gif-overlay"><img src="images/img-laser.gif" alt="Project Preview"></div>
+        <div class="project-num">PROJECT <span>05</span></div>
+        <div class="project-name">Laser Duel: Java Game</div>
+        <div class="project-desc"> 
+          
+          Laser Duel is a state-managed 2D survival platformer written natively 
+          in Java utilizing standard canvas drawing layers and custom asset 
+          pipelines. Players navigate pixel-perfect terrain hazards while 
+          managing a fluid double-jump physics module and variable status 
+          ailments. 
+
+        </div>
+          <div class="project-tags">
+          <span class="project-tag">Java</span>
+          <span class="project-tag">Piskel</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">PROJECT <span>06</span></div>
+        <div class="project-name">NLP-Based English-to-Tagalog Translator using PyTorch</div>
+        <div class="project-desc"> Built and trained a simple neural machine translation system in PyTorch leveraging NLP techniques and sequence modeling architectures to improve contextual English-to-Tagalog translation performance.
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">PyTorch</span>
+          <span class="project-tag">Deep Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">PROJECT <span>07</span></div>
+        <div class="project-name">Personal Blog Website made in Django</div>
+        <div class="project-desc"> My first ever personal article website for a school project with
+           working users, comments, and blog posting. Utilizes CSS and Django forms.
+          
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">Django</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">PROJECT <span>08</span></div>
+        <div class="project-name">KanyeGPT: A Custom Generative Character Model Extending Andrej Karpathy's nanoGPT Framework</div>
+        <div class="project-desc"> 
+          A generatively pretrained transformer (GPT) based on Andrej Karpathy with casual 
+          self attention mechanism modified with RMS and Layer Normalization with 
+          level smoothed loss function in the Transformer block to learn Kanye speech
+          through a twitter-based dataset.
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">pytorch</span>
+          <span class="project-tag">pandas</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">PROJECT <span>09</span></div>
+        <div class="project-name">Final Fantasy XIV Market Intelligence Platform: Accessible Market Architecture via MongoDB</div>
+        <div class="project-desc"> 
+          A data science solution designed to optimize marketplace 
+          tracking by mapping relational game-economy data into a 
+          highly performant MongoDB architecture. The platform delivers 
+          programmatic interpretation of player commerce via automated 
+          pricing statistics, historical volume modeling, variance/volatility 
+          tracking, and demand elasticity metrics.
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">MongoDB</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">Flask</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="experience-section">
+      <h2 class="section-title">Leadership<br> & Experience</h2>
+      <div class="exp-scroll-row">
+  
+        <div class="experience-card">
+          <h3 class="exp-title">Cyber Security Operations Intern</h3>
+          <h4 class="exp-organization">SM Investments Corp. · Pasay City</h4>
+          <p class="exp-desc">Managed hands-on experience on daily cyber threats—DDoS, XSS, WAF attacks, phishing—using Cloudflare & Trend Micro. Built automation scripts and playbook tutorials; trained fellow CSOC interns.</p>
+          <div class="project-tags">
+            <span class="project-tag">Cloudflare</span>
+            <span class="project-tag">Cyber Threat Analysis</span>
+            <span class="project-tag">Trend Micro</span>
+          </div>
+        </div>
+  
+        <div class="experience-card">
+          <h3 class="exp-title">Information Technology Intern</h3>
+          <h4 class="exp-organization">Knowles Training Institute · Singapore</h4>
+          <p class="exp-desc">Built and maintained training websites for 100+ countries. Automated workflows with Selenium & BeautifulSoup. Praised by CEO; cross-deployed to Umonics Method for site efficiency.</p>
+          <div class="project-tags">
+            <span class="project-tag">Web Development</span>
+            <span class="project-tag">Elementor</span>
+            <span class="project-tag">Selenium</span>
+            <span class="project-tag">Automation</span>
+          </div>
+        </div>
+  
+        <div class="experience-card">
+          <h3 class="exp-title">President</h3>
+          <h4 class="exp-organization">Computer Society of the Ateneo · QC</h4>
+          <p class="exp-desc">Oversaw  and led CompSAt's systems revamp and co-headed initiatives like Ignition 2026, Learn-2-Dev, COAllective fundraiser game, RecWeek 2025 site, and major events: XP Week, CompSAt Connects, Seniors' Send-Off.</p>
+          <div class="project-tags">
+            <span class="project-tag">Leadership</span>
+            <span class="project-tag">Operations</span>
+            <span class="project-tag">Stakeholder Management</span>
+          </div>
+        </div>
+  
+      </div>
+    </section>
+
+    <div class="portfolio-footer">
+      <div>
+        <div class="footer-logo">DABBLE<span> STUDIOS</span></div>
+        <div class="footer-copy"><i>
+          "Ne cede malis"</i><br>
+          0945 351-2113<br>
+          gaby102602@gmail.com<br>
+        </div>
+
+      </div>
+      <div class="footer-links">
+        <div class="footer-links">
+          <a href="https://github.com/albertgabrielabdon" target="_blank" rel="noopener noreferrer" class="footer-link" title="GitHub">    <i class="fa-brands fa-github"></i>
+          </a>
+          
+          <a href="https://www.linkedin.com/in/albert-gabriel-abdon/" target="_blank" rel="noopener noreferrer" class="footer-link" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          
+          <a href="https://open.spotify.com/user/31i3cgngrgayawtzvtl6wkcwcyma?si=e39f815856ad46e6" target="_blank" rel="noopener noreferrer" class="footer-link" title="Spotify">
+            <i class="fa-brands fa-spotify"></i>
+          </a>
+
+          <a href="https://fb.com/stellahermosafan" target="_blank" rel="noopener noreferrer" class="footer-link" title="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/animate.js"></script>
+
+</body>
+</html>
