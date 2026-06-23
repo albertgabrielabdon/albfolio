@@ -6,6 +6,9 @@ const tracks = [
 let currentTrack = 0;
 let isPlaying = false;
 
+const PLAY_ICON  = `<i class="fa-solid fa-play"></i>`;
+const PAUSE_ICON = `<i class="fa-solid fa-pause"></i>`;
+
 const playBtn  = document.getElementById('play-btn');
 const prevBtn  = document.getElementById('prev-btn');
 const nextBtn  = document.getElementById('next-btn');
@@ -16,9 +19,7 @@ const progressFill = document.getElementById('player-progress-fill');
 function getAudio(idx) {
   return document.getElementById(tracks[idx].id);
 }
-
 function loadTrack(idx, autoPlay) {
-
   tracks.forEach((t, i) => {
     const a = getAudio(i);
     a.pause();
@@ -27,14 +28,15 @@ function loadTrack(idx, autoPlay) {
   currentTrack = idx;
   playerTitle.textContent = tracks[idx].title;
   playerArt.innerHTML   = tracks[idx].label;
+  
   if (autoPlay) {
     getAudio(idx).play().catch(()=>{});
     isPlaying = true;
-    playBtn.textContent = '⏸';
+    playBtn.innerHTML = PAUSE_ICON;
     playerArt.classList.add('playing');
   } else {
     isPlaying = false;
-    playBtn.textContent = '▶';
+    playBtn.innerHTML = PLAY_ICON;
     playerArt.classList.remove('playing');
   }
 }
@@ -44,12 +46,12 @@ playBtn.addEventListener('click', () => {
   if (isPlaying) {
     audio.pause();
     isPlaying = false;
-    playBtn.textContent = '▶';
+    playBtn.innerHTML = PLAY_ICON;
     playerArt.classList.remove('playing');
   } else {
     audio.play().catch(()=>{});
     isPlaying = true;
-    playBtn.textContent = '⏸';
+    playBtn.innerHTML = PAUSE_ICON;
     playerArt.classList.add('playing');
   }
 });
